@@ -19,8 +19,8 @@ function getComputerChoice(){
     
     function playRound(playerSelection, computerSelection){
     
-    console.log("PLAYER: ", playerSelection);
-    console.log("AI: ", computerSelection);
+   // console.log("PLAYER: ", playerSelection);
+   // console.log("AI: ", computerSelection);
 
     //determine the winner based on player's selection, then compare it to alternatives
     if(playerSelection == "rock"){
@@ -56,66 +56,79 @@ function getComputerChoice(){
 
  function game(){
 
+
+    const buttons = document.querySelectorAll('button');
+
     let playerScore = 0;
     let computeScore = 0;
 
-    for(var i = 0; i < 5; i++){
+    let round = 0;
 
-        //prompt the user to enter choice
+    buttons.forEach((button) => {
 
-        let playerSelection = "rock";
-
-        /*if(playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors");
-        {
-            console.log("Invalid input!, enter valid input!");
-            i--; //decrement counter to restart next round
-            continue;
-        }*/
+      
 
 
-        let result = playRound(playerSelection, getComputerChoice());
-        if(result == "W"){
-            playerScore++;
-            }
-            if(result == "L"){
-            computeScore++;
-            }
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
 
+            playerSelection = event.target.id;
+           // playerSelection = button id!
+            computerSelection = getComputerChoice();
+    
 
-        console.log("current score:");
-        console.log("You: ", playerScore);
-        console.log("AI: ", computeScore);
-        console.log('\n');
-   
+            let result = playRound(playerSelection, computerSelection);
 
-    }
-
-
-    //display final results:
-    if(playerScore > computeScore){
-        console.log("Total score:");
-        console.log("You:", playerScore);
-        console.log("AI:", computeScore);
-            console.log("Winner: You");
-    }
-    else if(playerScore < computeScore){
-        console.log("Total score:");
-        console.log("You:", playerScore);
-        console.log("AI:", computeScore);
-        console.log("Winner: Computer");
-    }
+            if(result == "W")
+                playerScore++;
+            if(result == "L")
+                computeScore++;
         
-    else 
-        console.log("TIE!");
+
+            display(result);
+
+          
+            
+
+        });
+
+      });
+    
+
  }
 
- ///////////////////////////////////---------------------------------------END OF FUNCTIONS
+
+
+
+ function display(result){
+
+    const results = document.getElementById('resultsContainer');
+    let message = "";
+
+    if(result == "W"){
+        message = "You beat the AI";
+    }
+    if(result == "L"){
+        message = "You lose";
+    }
+  
+    if(result == "T"){
+        message = "TIE";
+    }
+  
+  
+
+
+    results.textContent = message;
+ }
 
 
 
 
+    
+    game();
 
-   game();
+
 
     
 

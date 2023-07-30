@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+}
+
+
+
+
+.heading{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    font-size: 30px;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+.button-container{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+button{
+    padding: 3rem;
+    border-color: white;
+    background-color: black;
+    color:white;
+    padding: 10%;
+    font-size: 1.5rem;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+    transition-duration: 0.3s;
+}
+
+#resultsContainer{
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+     padding-top: 50px;
+    justify-content: center;
+
+
+    
+}
+
